@@ -133,3 +133,12 @@ Match Group sftp-only
     AllowTcpForwarding no
     X11Forwarding no
     #PermitTTY no
+{% if ssh_match_blocks | d() %}
+
+{% for block in ssh_match_blocks %}
+Match {{ block.type }} {{ block.path }}
+{% for option in block.options %}
+    {{ option.name }} {{ option.value }}
+{% endfor %}
+{% endfor %}
+{% endif %}
