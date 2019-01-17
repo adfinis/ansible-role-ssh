@@ -31,6 +31,18 @@ that can/should be set via parameters to the role. Any variables that are read
 from other roles and/or the global scope (ie. hostvars, group vars, etc.)
 should be mentioned here as well.
 
+Add a custom match block like:
+
+.. code-block:: yaml
+
+   ssh_match_blocks:
+     - name: rootlogin
+       type: Address
+       path: '172.16.*'
+       options:
+         - name: PermitRootLogin
+           value: 'yes'
+
 
 Dependencies
 =============
