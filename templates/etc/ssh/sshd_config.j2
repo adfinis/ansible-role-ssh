@@ -17,8 +17,6 @@ Protocol 2
 {% for hostkey in ssh_host_keys %}
 HostKey {{ hostkey }}
 {% endfor %}
-#Privilege Separation is turned on for security
-UsePrivilegeSeparation yes
 
 # Lifetime and size of ephemeral version 1 server key
 #KeyRegenerationInterval 1h
